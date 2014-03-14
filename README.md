@@ -1,6 +1,8 @@
 HUMBLE
 ======================
 
+nb. This project has still in a design phase. The documentation will grow as the project evolves. Thanks for stopping by. 
+
 Humble is a dynamic, lazy functional programming language. It compiles to Java bytecode, so it can be run on the JVM, and is interoprable with standard Java code.
 
 It has a clear syntax that is easy to learn, and allows you to use powerful features that are otherwise very clumbersome, or unnatural in normal Java code.
