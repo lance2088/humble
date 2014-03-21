@@ -18,7 +18,7 @@ public abstract class Module extends StdLib implements Callable {
      * @param c
      * @return
      */
-    protected static Callable yield(final Callable c) throws HumbleRuntimeException {
+    /*public static Callable yield(final Callable c) throws HumbleRuntimeException {
         Callable result = c;
         while (result instanceof FuturePromise) {
             result = c.call();
@@ -27,5 +27,5 @@ public abstract class Module extends StdLib implements Callable {
             }
         }
         return result;
-    }
+    }*/
 }

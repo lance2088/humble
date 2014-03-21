@@ -2,9 +2,8 @@ package humble.javahumblebridge;
 
 import humble.runtime.Callable;
 import humble.runtime.FuturePromise;
-import humble.runtime.Lambda;
 import humble.runtime.Module;
-
+import static humble.runtime.StdLib.yield;
 import java.lang.reflect.Field;
 import java.lang.reflect.InvocationHandler;
 import java.lang.reflect.Method;
@@ -41,7 +40,7 @@ public class JavaHumbleBridge<I, M extends Module> {
             while (result instanceof FuturePromise) {
                 result = result.call();
             }
-            return result.call(atomArgs);
+            return yield(result.call(atomArgs));
         }
     };
 

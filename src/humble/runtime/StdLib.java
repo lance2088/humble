@@ -1,6 +1,5 @@
 package humble.runtime;
 
-import static com.nickpeck.humble.Test.itterPrint;
 import humble.primitives._Boolean;
 import humble.primitives._List;
 import humble.primitives._Number;
@@ -24,7 +23,7 @@ public class StdLib {
      * @param c
      * @return
      */
-    private static Callable yield(final Callable c) throws HumbleRuntimeException{
+    public static Callable yield(final Callable c) throws HumbleRuntimeException{
         Callable result = c;
         while (result instanceof FuturePromise) {
             result = c.call();

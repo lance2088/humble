@@ -3,6 +3,7 @@ package humble.runtime.monads;
 
 import humble.primitives._List;
 import humble.runtime.Callable;
+import humble.runtime.HumbleRuntimeException;
 import humble.runtime.Lambda;
 import humble.runtime.Module;
 
@@ -29,7 +30,7 @@ public class Writer extends Module {
     };
     public final static Lambda call = new Lambda() {
         @Override
-        protected final Callable evaluate(Callable... args) {
+        protected final Callable evaluate(Callable... args) throws HumbleRuntimeException {
             final Callable value = ((_List) args[0]).get(0);
             final Callable log = ((_List) args[0]).get(1);
             final Callable modifier = args[1];
