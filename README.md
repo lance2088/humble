@@ -1,7 +1,9 @@
 HUMBLE
 ======================
 
-nb. This project has still in a design phase. The documentation will grow as the project evolves. Thanks for stopping by. 
+nb. This project has still in a design phase. The documentation will grow as the project evolves. Thanks for stopping by.
+
+If you want a quick glance at the syntax - check out com/nickpeck/humble/Test.hb I try to keep that up-to-date with the latest grammar.
 
 Humble is a dynamic, lazy functional programming language. It compiles to Java bytecode, so it can be run on the JVM, and is interoprable with standard Java code.
 
@@ -29,7 +31,7 @@ Quick Tour
 #### 1. Everything is a Function!
 The first thing you need to know, is that in Humble, everything is a function. We declare a function by providing a name (or 'alias') precedded by '@'. The declaration lists the expected variables in the familiar manner, followed by '::' which means 'is an alias of'. This follows is a single statment terminated by a semi-colon.
 
-	@simple_add(x,y) ::
+	simple_add as (x,y) ->
 	 x + y
 	;
 
@@ -51,9 +53,9 @@ Because of this, you can't go around assigning values to variables like you may 
 
 	greeting = "Hello world";
 
-Humble goes as far as to eliminate the assignment operator '='  altogether. You can, however declare a function that returns a value:
+Humble goes as far as to eliminate the assignment operator '='  altogether. You can, however declare a 'Alias' that returns a value:
 
-@greeting() :: "hello world";
+	greeting as () -> "hello world";
 
 Now, greeting() will be an alias for the string "hello world" throughout your program. But, because everything is immutable, you cannot re-declare greeting() later on in your program.
 
@@ -61,15 +63,15 @@ Now, greeting() will be an alias for the string "hello world" throughout your pr
 
 This may sound terribly restrictive, but in fact, it goes a long way to eliminating an important category of programing errors. Ever written a class that where you initialised a class variable in the constructor, only to accidentally modify it later on and spend ages debugging the error? Or perhaps you declared a class member as 'null' or 'void' and forgot to initialize it when the class is instantiated? You'll be pleased to hear that both of these conditions cannot occur in Humble code. Another instant advantage is that you can pass 'uncalled' functions around and re-use them in different contexts, just like Javascript or Python do. For example:
 
-	@addTwo(x)::
+	addTwo as (x) ->
 	 x + 2
 	;
 
-	@subTwo(x)::
+	subTwo as (x) ->
 	 x - 2
 	;
 
-	@do_something_with_x(modifier, x) ::
+	do_something_with_x as (modifier, x) ->
 	 modifier(x)
 	;
 
@@ -78,7 +80,7 @@ This may sound terribly restrictive, but in fact, it goes a long way to eliminat
 
 Or, heres another, more useful application. Say your want to refactor the part of your application that loads files into a common method (or 'load_file'). However, you need to have a different response depending on the kind of file being loaded? This is where you can use a callback:
 
-	@load_file(filename, callback)::
+	@load_file as (filename, callback) ->
 	 if load(filename)
 	 then callback
 	 else "The file could not be loaded!"
@@ -95,34 +97,26 @@ You may have noticed that we have skipped the traditional hello world example. W
 
 The example above assumed that we had already defined two functions (display_user_settings and open_logfile_editor) in our code. However, for smaller tasks, it is possible to create a lambda or inline function. This look similar to regular functions, except that they have no alias because they exist only inside of statements. Here is an example:
 
-	\(x) ::
-	 x + 2
-	;
-
-Or, if it takes no arguments, there is a simpler form:
-
-	::
-	 x + 2
-	;
+	(x) -> x + 2;
 
 So, in a very simple sense, the last example ('do_something_with_x') could have been written like this:
 
 
-	@do_something_with_x(modifier, x) ::
+	do_something_with_x as (modifier, x) ->
 	 modifier(x)
 	;
 
-	do_something_with_x(\(x) :: x+2, 3);
-	do_something_with_x(\(x) :: x-2, 3);
+	do_something_with_x((x) -> x+2, 3);
+	do_something_with_x((x) -> x-2, 3);
 
 
 #### 5. Functions can Return Functions
 
 Functions can return lambda functions that you can re-use later. This is known as 'currying':
 
-	@curried_application(x)::
-	 \(y) :: 
-	  \(z) ::
+	curried_application as (x) ->
+	 (y) ->
+	  (z) ->
 	    str_cat(x,y,z)
 	;
 
@@ -132,7 +126,7 @@ You can call it like this:
 
 Or you could just apply partial arguments and use bind the rest later in your application:
 	 
-	@partial_curry() :: curried_application("Hows")(" it ");
+	partial_curry as () -> curried_application("Hows")(" it ");
 
 	(...much later on in your application)
 
@@ -148,8 +142,8 @@ Create a subfolder 'MyPackage' and create a new Humble source code file "HelloWo
 	package MyPackage;
 	import humble.libs.IO;
 
-	@print(str) ::
-	 str -> IO(:: print_out(x))
+	print as (str) ->
+	 str : IO.print_out
 	;
 
 	print("Hello, world!");
