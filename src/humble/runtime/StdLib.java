@@ -1,6 +1,7 @@
 package humble.runtime;
 
 import humble.primitives._Boolean;
+import humble.primitives._Class;
 import humble.primitives._List;
 import humble.primitives._Number;
 import humble.primitives._String;
@@ -20,14 +21,15 @@ public class StdLib {
      * a result can be returned.
      *
      * (This can't be called from user-level code)
+     *
      * @param c
      * @return
      */
-    public static Callable yield(final Callable c) throws HumbleRuntimeException{
+    public static Callable yield(final Callable c) throws HumbleRuntimeException {
         Callable result = c;
         while (result instanceof FuturePromise) {
             result = c.call();
-            if(result instanceof _Exception) {
+            if (result instanceof _Exception) {
                 //throw new HumbleRuntimeException((_Exception)result);
             }
         }
@@ -140,22 +142,22 @@ public class StdLib {
      * Force the evaluation of the given argument (a FuturePromise)
      */
     /*protected static final Lambda<Callable> yield = new Lambda() {
-        @Override
-        protected boolean validateArgs(Callable... args) {
-            if (args.length == 0) {
-                return false;
-            }
-            if (!(args[1] instanceof FuturePromise)) {
-                return false;
-            }
-            return true;
-        }
+     @Override
+     protected boolean validateArgs(Callable... args) {
+     if (args.length == 0) {
+     return false;
+     }
+     if (!(args[1] instanceof FuturePromise)) {
+     return false;
+     }
+     return true;
+     }
 
-        @Override
-        protected Callable evaluate(Callable... args) {
-            return args[0].call();
-        }
-    };*/
+     @Override
+     protected Callable evaluate(Callable... args) {
+     return args[0].call();
+     }
+     };*/
     /**
      * (x,y...) :: x+y+... Return a Lambda function to join any number of
      * _String objects.
@@ -247,9 +249,11 @@ public class StdLib {
         }
     };
     /**
-     * (callable,[a,b...]) :: [callable(a), callable(b)...] Apply the Lambda function
-     * given by the first arg to each element in the list given as the second
-     * arg.
+     * (callable,[a,b...]) :: [callable(a), callable(b)...] Apply the Lambda
+     * function given by the first arg to each element in the list given as the
+     * second arg.
+     * Note that the computation is asyschronous - within the threadpool limits
+     * set in GuardianProxy
      */
     protected static final Lambda<_List> map = new Lambda() {
         @Override
@@ -271,7 +275,18 @@ public class StdLib {
             int index = 0;
             while (i.hasNext()) {
                 final Callable c = i.next();
-                t.set(index, l.call(c));
+
+                //t.set(index, l.call(c));
+                
+                //update: invoke the callable in a new thread
+                t.set(index,
+                        new GuardianProxy(new RunnableResult() {
+                    @Override
+                    public void run() {
+                        result = l.call(c);
+                    }
+                }).start());
+                
                 index++;
             }
 
@@ -669,7 +684,7 @@ public class StdLib {
         @Override
         protected final Callable evaluate(final Callable... args) {
 
-                return new _Boolean(((_Number) args[0]).unwrap() > ((_Number) args[1]).unwrap());
+            return new _Boolean(((_Number) args[0]).unwrap() > ((_Number) args[1]).unwrap());
 
         }
     };
@@ -680,13 +695,12 @@ public class StdLib {
     protected static final Lambda less_than = new Lambda() {
         @Override
         protected final Callable evaluate(final Callable... args) {
-                return new _Boolean(((_Number) args[0]).unwrap() < ((_Number) args[1]).unwrap());
+            return new _Boolean(((_Number) args[0]).unwrap() < ((_Number) args[1]).unwrap());
         }
     };
-    
     /**
-     * Given (List, initialString), return a string representation of the evaluated list.
-     * This blocks until ready.
+     * Given (List, initialString), return a string representation of the
+     * evaluated list. This blocks until ready.
      */
     public final static Lambda listToStr = new Lambda() {
         @Override
@@ -697,7 +711,7 @@ public class StdLib {
             final Callable str_result = args[1];
             return new Conditional() {
                 @Override
-                public final _Boolean condition() throws HumbleRuntimeException{
+                public final _Boolean condition() throws HumbleRuntimeException {
                     return (_Boolean) yield(equals.call(length.call(list), new _Number(0)));
                 }
 
@@ -710,7 +724,7 @@ public class StdLib {
                 public final Callable onElse() {
                     return new Conditional() {
                         @Override
-                        public final _Boolean condition() throws HumbleRuntimeException{
+                        public final _Boolean condition() throws HumbleRuntimeException {
                             return (_Boolean) yield(equals.call(str_result, new _String("")));
                         }
 
@@ -728,5 +742,6 @@ public class StdLib {
             }.call();
         }
     };
+
     
 }

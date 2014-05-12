@@ -57,22 +57,22 @@ public abstract class Yield extends Module {
                 public Callable bindTo(Callable a) {
                     throw new UnsupportedOperationException("Not supported yet.");
                 }
+
             };
         }
     };
-    
     /**
-     * grab(<error_type>, callable, callback) - if callable is an error of 
-     * type error_type, execute the callback and return the result
-     * otherwise, just return callable. This allows grab to be chained.
+     * grab(<error_type>, callable, callback) - if callable is an error of type
+     * error_type, execute the callback and return the result otherwise, just
+     * return callable. This allows grab to be chained.
      */
     public static final Callable grab = new Callable() {
         @Override
         public Callable call(Callable... args) {
-            _Class t = (_Class)args[0];
+            _Class t = (_Class) args[0];
             Callable obj = args[1];
             Callable callback = args[2];
-            if(obj.getClass().equals(t.unwrap())) {
+            if (obj.getClass().equals(t.unwrap())) {
                 return callback.call(args);
             }
             return obj;

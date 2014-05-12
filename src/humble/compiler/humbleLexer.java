@@ -1,4 +1,4 @@
-// $ANTLR 3.4 /home/nickpeck/NetBeansProjects/HumbleV3/humble.g 2014-02-06 18:13:26
+// $ANTLR 3.4 /home/nickpeck/Humble/humble.g 2014-04-16 21:17:42
 
 package humble.compiler;
 
@@ -22,33 +22,35 @@ public class humbleLexer extends Lexer {
     public static final int DEREF=12;
     public static final int DIV=13;
     public static final int DO=14;
-    public static final int ELSE=15;
-    public static final int EOL=16;
-    public static final int EXTENDS=17;
-    public static final int IDENT=18;
-    public static final int IF=19;
-    public static final int IMPORT=20;
-    public static final int IS=21;
-    public static final int LAB=22;
-    public static final int LAMBDA=23;
-    public static final int LINE_COMMENT=24;
-    public static final int LPAREN=25;
-    public static final int LSB=26;
-    public static final int MINUS=27;
-    public static final int MOD=28;
-    public static final int MULT=29;
-    public static final int NOT=30;
-    public static final int NUMBER=31;
-    public static final int OR=32;
-    public static final int PACKAGE=33;
-    public static final int PLUS=34;
-    public static final int RAB=35;
-    public static final int RPAREN=36;
-    public static final int RSB=37;
-    public static final int STR=38;
-    public static final int TAIL=39;
-    public static final int THEN=40;
-    public static final int WHITESPACE=41;
+    public static final int DOT=15;
+    public static final int ELSE=16;
+    public static final int EOL=17;
+    public static final int EXTENDS=18;
+    public static final int IDENT=19;
+    public static final int IF=20;
+    public static final int IMPORT=21;
+    public static final int IS=22;
+    public static final int LAB=23;
+    public static final int LAMBDA=24;
+    public static final int LINE_COMMENT=25;
+    public static final int LPAREN=26;
+    public static final int LSB=27;
+    public static final int MINUS=28;
+    public static final int MOD=29;
+    public static final int MULT=30;
+    public static final int NEW=31;
+    public static final int NOT=32;
+    public static final int NUMBER=33;
+    public static final int OR=34;
+    public static final int PACKAGE=35;
+    public static final int PLUS=36;
+    public static final int RAB=37;
+    public static final int RPAREN=38;
+    public static final int RSB=39;
+    public static final int STR=40;
+    public static final int TAIL=41;
+    public static final int THEN=42;
+    public static final int WHITESPACE=43;
 
     // delegates
     // delegators
@@ -63,15 +65,15 @@ public class humbleLexer extends Lexer {
     public humbleLexer(CharStream input, RecognizerSharedState state) {
         super(input,state);
     }
-    public String getGrammarFileName() { return "/home/nickpeck/NetBeansProjects/HumbleV3/humble.g"; }
+    public String getGrammarFileName() { return "/home/nickpeck/Humble/humble.g"; }
 
     // $ANTLR start "IMPORT"
     public final void mIMPORT() throws RecognitionException {
         try {
             int _type = IMPORT;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // /home/nickpeck/NetBeansProjects/HumbleV3/humble.g:38:8: ( 'import' )
-            // /home/nickpeck/NetBeansProjects/HumbleV3/humble.g:38:10: 'import'
+            // /home/nickpeck/Humble/humble.g:38:8: ( 'import' )
+            // /home/nickpeck/Humble/humble.g:38:10: 'import'
             {
             match("import"); 
 
@@ -93,8 +95,8 @@ public class humbleLexer extends Lexer {
         try {
             int _type = PACKAGE;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // /home/nickpeck/NetBeansProjects/HumbleV3/humble.g:39:9: ( 'package' )
-            // /home/nickpeck/NetBeansProjects/HumbleV3/humble.g:39:11: 'package'
+            // /home/nickpeck/Humble/humble.g:39:9: ( 'package' )
+            // /home/nickpeck/Humble/humble.g:39:11: 'package'
             {
             match("package"); 
 
@@ -116,8 +118,8 @@ public class humbleLexer extends Lexer {
         try {
             int _type = DEF;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // /home/nickpeck/NetBeansProjects/HumbleV3/humble.g:40:5: ( '@' )
-            // /home/nickpeck/NetBeansProjects/HumbleV3/humble.g:40:7: '@'
+            // /home/nickpeck/Humble/humble.g:40:5: ( '@' )
+            // /home/nickpeck/Humble/humble.g:40:7: '@'
             {
             match('@'); 
 
@@ -137,8 +139,8 @@ public class humbleLexer extends Lexer {
         try {
             int _type = AS;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // /home/nickpeck/NetBeansProjects/HumbleV3/humble.g:41:4: ( '::' )
-            // /home/nickpeck/NetBeansProjects/HumbleV3/humble.g:41:6: '::'
+            // /home/nickpeck/Humble/humble.g:41:4: ( '::' )
+            // /home/nickpeck/Humble/humble.g:41:6: '::'
             {
             match("::"); 
 
@@ -160,8 +162,8 @@ public class humbleLexer extends Lexer {
         try {
             int _type = DEREF;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // /home/nickpeck/NetBeansProjects/HumbleV3/humble.g:42:7: ( 'as' )
-            // /home/nickpeck/NetBeansProjects/HumbleV3/humble.g:42:9: 'as'
+            // /home/nickpeck/Humble/humble.g:42:7: ( 'as' )
+            // /home/nickpeck/Humble/humble.g:42:9: 'as'
             {
             match("as"); 
 
@@ -183,8 +185,8 @@ public class humbleLexer extends Lexer {
         try {
             int _type = TAIL;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // /home/nickpeck/NetBeansProjects/HumbleV3/humble.g:43:6: ( 'tail' )
-            // /home/nickpeck/NetBeansProjects/HumbleV3/humble.g:43:8: 'tail'
+            // /home/nickpeck/Humble/humble.g:43:6: ( 'tail' )
+            // /home/nickpeck/Humble/humble.g:43:8: 'tail'
             {
             match("tail"); 
 
@@ -206,8 +208,8 @@ public class humbleLexer extends Lexer {
         try {
             int _type = EOL;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // /home/nickpeck/NetBeansProjects/HumbleV3/humble.g:44:5: ( ';' )
-            // /home/nickpeck/NetBeansProjects/HumbleV3/humble.g:44:7: ';'
+            // /home/nickpeck/Humble/humble.g:44:5: ( ';' )
+            // /home/nickpeck/Humble/humble.g:44:7: ';'
             {
             match(';'); 
 
@@ -227,8 +229,8 @@ public class humbleLexer extends Lexer {
         try {
             int _type = COLON;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // /home/nickpeck/NetBeansProjects/HumbleV3/humble.g:45:7: ( ':' )
-            // /home/nickpeck/NetBeansProjects/HumbleV3/humble.g:45:9: ':'
+            // /home/nickpeck/Humble/humble.g:45:7: ( ':' )
+            // /home/nickpeck/Humble/humble.g:45:9: ':'
             {
             match(':'); 
 
@@ -248,8 +250,8 @@ public class humbleLexer extends Lexer {
         try {
             int _type = BINDS;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // /home/nickpeck/NetBeansProjects/HumbleV3/humble.g:46:7: ( '->' )
-            // /home/nickpeck/NetBeansProjects/HumbleV3/humble.g:46:9: '->'
+            // /home/nickpeck/Humble/humble.g:46:7: ( '->' )
+            // /home/nickpeck/Humble/humble.g:46:9: '->'
             {
             match("->"); 
 
@@ -271,8 +273,8 @@ public class humbleLexer extends Lexer {
         try {
             int _type = LPAREN;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // /home/nickpeck/NetBeansProjects/HumbleV3/humble.g:47:8: ( '(' )
-            // /home/nickpeck/NetBeansProjects/HumbleV3/humble.g:47:10: '('
+            // /home/nickpeck/Humble/humble.g:47:8: ( '(' )
+            // /home/nickpeck/Humble/humble.g:47:10: '('
             {
             match('('); 
 
@@ -292,8 +294,8 @@ public class humbleLexer extends Lexer {
         try {
             int _type = RPAREN;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // /home/nickpeck/NetBeansProjects/HumbleV3/humble.g:48:8: ( ')' )
-            // /home/nickpeck/NetBeansProjects/HumbleV3/humble.g:48:10: ')'
+            // /home/nickpeck/Humble/humble.g:48:8: ( ')' )
+            // /home/nickpeck/Humble/humble.g:48:10: ')'
             {
             match(')'); 
 
@@ -313,8 +315,8 @@ public class humbleLexer extends Lexer {
         try {
             int _type = COMMA;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // /home/nickpeck/NetBeansProjects/HumbleV3/humble.g:49:7: ( ',' )
-            // /home/nickpeck/NetBeansProjects/HumbleV3/humble.g:49:9: ','
+            // /home/nickpeck/Humble/humble.g:49:7: ( ',' )
+            // /home/nickpeck/Humble/humble.g:49:9: ','
             {
             match(','); 
 
@@ -334,8 +336,8 @@ public class humbleLexer extends Lexer {
         try {
             int _type = LSB;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // /home/nickpeck/NetBeansProjects/HumbleV3/humble.g:50:5: ( '[' )
-            // /home/nickpeck/NetBeansProjects/HumbleV3/humble.g:50:7: '['
+            // /home/nickpeck/Humble/humble.g:50:5: ( '[' )
+            // /home/nickpeck/Humble/humble.g:50:7: '['
             {
             match('['); 
 
@@ -355,8 +357,8 @@ public class humbleLexer extends Lexer {
         try {
             int _type = RSB;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // /home/nickpeck/NetBeansProjects/HumbleV3/humble.g:51:5: ( ']' )
-            // /home/nickpeck/NetBeansProjects/HumbleV3/humble.g:51:7: ']'
+            // /home/nickpeck/Humble/humble.g:51:5: ( ']' )
+            // /home/nickpeck/Humble/humble.g:51:7: ']'
             {
             match(']'); 
 
@@ -376,8 +378,8 @@ public class humbleLexer extends Lexer {
         try {
             int _type = LAB;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // /home/nickpeck/NetBeansProjects/HumbleV3/humble.g:52:5: ( '<' )
-            // /home/nickpeck/NetBeansProjects/HumbleV3/humble.g:52:7: '<'
+            // /home/nickpeck/Humble/humble.g:52:5: ( '<' )
+            // /home/nickpeck/Humble/humble.g:52:7: '<'
             {
             match('<'); 
 
@@ -397,8 +399,8 @@ public class humbleLexer extends Lexer {
         try {
             int _type = RAB;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // /home/nickpeck/NetBeansProjects/HumbleV3/humble.g:53:5: ( '>' )
-            // /home/nickpeck/NetBeansProjects/HumbleV3/humble.g:53:7: '>'
+            // /home/nickpeck/Humble/humble.g:53:5: ( '>' )
+            // /home/nickpeck/Humble/humble.g:53:7: '>'
             {
             match('>'); 
 
@@ -418,7 +420,7 @@ public class humbleLexer extends Lexer {
         try {
             int _type = BOOL;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // /home/nickpeck/NetBeansProjects/HumbleV3/humble.g:54:6: ( 'true' | 'false' )
+            // /home/nickpeck/Humble/humble.g:54:6: ( 'true' | 'false' )
             int alt1=2;
             int LA1_0 = input.LA(1);
 
@@ -437,7 +439,7 @@ public class humbleLexer extends Lexer {
             }
             switch (alt1) {
                 case 1 :
-                    // /home/nickpeck/NetBeansProjects/HumbleV3/humble.g:54:8: 'true'
+                    // /home/nickpeck/Humble/humble.g:54:8: 'true'
                     {
                     match("true"); 
 
@@ -446,7 +448,7 @@ public class humbleLexer extends Lexer {
                     }
                     break;
                 case 2 :
-                    // /home/nickpeck/NetBeansProjects/HumbleV3/humble.g:54:17: 'false'
+                    // /home/nickpeck/Humble/humble.g:54:17: 'false'
                     {
                     match("false"); 
 
@@ -470,8 +472,8 @@ public class humbleLexer extends Lexer {
         try {
             int _type = LAMBDA;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // /home/nickpeck/NetBeansProjects/HumbleV3/humble.g:55:8: ( '\\\\' )
-            // /home/nickpeck/NetBeansProjects/HumbleV3/humble.g:55:10: '\\\\'
+            // /home/nickpeck/Humble/humble.g:55:8: ( '\\\\' )
+            // /home/nickpeck/Humble/humble.g:55:10: '\\\\'
             {
             match('\\'); 
 
@@ -491,8 +493,8 @@ public class humbleLexer extends Lexer {
         try {
             int _type = DO;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // /home/nickpeck/NetBeansProjects/HumbleV3/humble.g:56:4: ( 'do' )
-            // /home/nickpeck/NetBeansProjects/HumbleV3/humble.g:56:6: 'do'
+            // /home/nickpeck/Humble/humble.g:56:4: ( 'do' )
+            // /home/nickpeck/Humble/humble.g:56:6: 'do'
             {
             match("do"); 
 
@@ -514,8 +516,8 @@ public class humbleLexer extends Lexer {
         try {
             int _type = IF;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // /home/nickpeck/NetBeansProjects/HumbleV3/humble.g:57:4: ( 'if' )
-            // /home/nickpeck/NetBeansProjects/HumbleV3/humble.g:57:6: 'if'
+            // /home/nickpeck/Humble/humble.g:57:4: ( 'if' )
+            // /home/nickpeck/Humble/humble.g:57:6: 'if'
             {
             match("if"); 
 
@@ -537,8 +539,8 @@ public class humbleLexer extends Lexer {
         try {
             int _type = ELSE;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // /home/nickpeck/NetBeansProjects/HumbleV3/humble.g:58:6: ( 'else' )
-            // /home/nickpeck/NetBeansProjects/HumbleV3/humble.g:58:8: 'else'
+            // /home/nickpeck/Humble/humble.g:58:6: ( 'else' )
+            // /home/nickpeck/Humble/humble.g:58:8: 'else'
             {
             match("else"); 
 
@@ -560,8 +562,8 @@ public class humbleLexer extends Lexer {
         try {
             int _type = THEN;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // /home/nickpeck/NetBeansProjects/HumbleV3/humble.g:59:6: ( 'then' )
-            // /home/nickpeck/NetBeansProjects/HumbleV3/humble.g:59:8: 'then'
+            // /home/nickpeck/Humble/humble.g:59:6: ( 'then' )
+            // /home/nickpeck/Humble/humble.g:59:8: 'then'
             {
             match("then"); 
 
@@ -583,8 +585,8 @@ public class humbleLexer extends Lexer {
         try {
             int _type = OR;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // /home/nickpeck/NetBeansProjects/HumbleV3/humble.g:61:4: ( '|' )
-            // /home/nickpeck/NetBeansProjects/HumbleV3/humble.g:61:6: '|'
+            // /home/nickpeck/Humble/humble.g:61:4: ( '|' )
+            // /home/nickpeck/Humble/humble.g:61:6: '|'
             {
             match('|'); 
 
@@ -604,8 +606,8 @@ public class humbleLexer extends Lexer {
         try {
             int _type = EXTENDS;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // /home/nickpeck/NetBeansProjects/HumbleV3/humble.g:63:9: ( 'extends' )
-            // /home/nickpeck/NetBeansProjects/HumbleV3/humble.g:63:11: 'extends'
+            // /home/nickpeck/Humble/humble.g:63:9: ( 'extends' )
+            // /home/nickpeck/Humble/humble.g:63:11: 'extends'
             {
             match("extends"); 
 
@@ -627,8 +629,8 @@ public class humbleLexer extends Lexer {
         try {
             int _type = AND;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // /home/nickpeck/NetBeansProjects/HumbleV3/humble.g:64:5: ( '&' )
-            // /home/nickpeck/NetBeansProjects/HumbleV3/humble.g:64:7: '&'
+            // /home/nickpeck/Humble/humble.g:64:5: ( '&' )
+            // /home/nickpeck/Humble/humble.g:64:7: '&'
             {
             match('&'); 
 
@@ -648,8 +650,8 @@ public class humbleLexer extends Lexer {
         try {
             int _type = NOT;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // /home/nickpeck/NetBeansProjects/HumbleV3/humble.g:65:5: ( '!' )
-            // /home/nickpeck/NetBeansProjects/HumbleV3/humble.g:65:7: '!'
+            // /home/nickpeck/Humble/humble.g:65:5: ( '!' )
+            // /home/nickpeck/Humble/humble.g:65:7: '!'
             {
             match('!'); 
 
@@ -669,8 +671,8 @@ public class humbleLexer extends Lexer {
         try {
             int _type = IS;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // /home/nickpeck/NetBeansProjects/HumbleV3/humble.g:66:4: ( 'is' )
-            // /home/nickpeck/NetBeansProjects/HumbleV3/humble.g:66:6: 'is'
+            // /home/nickpeck/Humble/humble.g:66:4: ( 'is' )
+            // /home/nickpeck/Humble/humble.g:66:6: 'is'
             {
             match("is"); 
 
@@ -692,8 +694,8 @@ public class humbleLexer extends Lexer {
         try {
             int _type = PLUS;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // /home/nickpeck/NetBeansProjects/HumbleV3/humble.g:67:6: ( '+' )
-            // /home/nickpeck/NetBeansProjects/HumbleV3/humble.g:67:8: '+'
+            // /home/nickpeck/Humble/humble.g:67:6: ( '+' )
+            // /home/nickpeck/Humble/humble.g:67:8: '+'
             {
             match('+'); 
 
@@ -713,8 +715,8 @@ public class humbleLexer extends Lexer {
         try {
             int _type = MINUS;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // /home/nickpeck/NetBeansProjects/HumbleV3/humble.g:68:7: ( '-' )
-            // /home/nickpeck/NetBeansProjects/HumbleV3/humble.g:68:9: '-'
+            // /home/nickpeck/Humble/humble.g:68:7: ( '-' )
+            // /home/nickpeck/Humble/humble.g:68:9: '-'
             {
             match('-'); 
 
@@ -734,8 +736,8 @@ public class humbleLexer extends Lexer {
         try {
             int _type = MULT;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // /home/nickpeck/NetBeansProjects/HumbleV3/humble.g:69:6: ( '*' )
-            // /home/nickpeck/NetBeansProjects/HumbleV3/humble.g:69:8: '*'
+            // /home/nickpeck/Humble/humble.g:69:6: ( '*' )
+            // /home/nickpeck/Humble/humble.g:69:8: '*'
             {
             match('*'); 
 
@@ -755,8 +757,8 @@ public class humbleLexer extends Lexer {
         try {
             int _type = DIV;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // /home/nickpeck/NetBeansProjects/HumbleV3/humble.g:70:5: ( '/' )
-            // /home/nickpeck/NetBeansProjects/HumbleV3/humble.g:70:7: '/'
+            // /home/nickpeck/Humble/humble.g:70:5: ( '/' )
+            // /home/nickpeck/Humble/humble.g:70:7: '/'
             {
             match('/'); 
 
@@ -776,8 +778,8 @@ public class humbleLexer extends Lexer {
         try {
             int _type = MOD;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // /home/nickpeck/NetBeansProjects/HumbleV3/humble.g:71:5: ( '%' )
-            // /home/nickpeck/NetBeansProjects/HumbleV3/humble.g:71:7: '%'
+            // /home/nickpeck/Humble/humble.g:71:5: ( '%' )
+            // /home/nickpeck/Humble/humble.g:71:7: '%'
             {
             match('%'); 
 
@@ -792,15 +794,59 @@ public class humbleLexer extends Lexer {
     }
     // $ANTLR end "MOD"
 
+    // $ANTLR start "NEW"
+    public final void mNEW() throws RecognitionException {
+        try {
+            int _type = NEW;
+            int _channel = DEFAULT_TOKEN_CHANNEL;
+            // /home/nickpeck/Humble/humble.g:72:5: ( 'new' )
+            // /home/nickpeck/Humble/humble.g:72:7: 'new'
+            {
+            match("new"); 
+
+
+
+            }
+
+            state.type = _type;
+            state.channel = _channel;
+        }
+        finally {
+        	// do for sure before leaving
+        }
+    }
+    // $ANTLR end "NEW"
+
+    // $ANTLR start "DOT"
+    public final void mDOT() throws RecognitionException {
+        try {
+            int _type = DOT;
+            int _channel = DEFAULT_TOKEN_CHANNEL;
+            // /home/nickpeck/Humble/humble.g:73:6: ( '.' )
+            // /home/nickpeck/Humble/humble.g:73:8: '.'
+            {
+            match('.'); 
+
+            }
+
+            state.type = _type;
+            state.channel = _channel;
+        }
+        finally {
+        	// do for sure before leaving
+        }
+    }
+    // $ANTLR end "DOT"
+
     // $ANTLR start "NUMBER"
     public final void mNUMBER() throws RecognitionException {
         try {
             int _type = NUMBER;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // /home/nickpeck/NetBeansProjects/HumbleV3/humble.g:77:9: ( ( '0' .. '9' )+ )
-            // /home/nickpeck/NetBeansProjects/HumbleV3/humble.g:77:11: ( '0' .. '9' )+
+            // /home/nickpeck/Humble/humble.g:79:9: ( ( '0' .. '9' )+ )
+            // /home/nickpeck/Humble/humble.g:79:11: ( '0' .. '9' )+
             {
-            // /home/nickpeck/NetBeansProjects/HumbleV3/humble.g:77:11: ( '0' .. '9' )+
+            // /home/nickpeck/Humble/humble.g:79:11: ( '0' .. '9' )+
             int cnt2=0;
             loop2:
             do {
@@ -814,7 +860,7 @@ public class humbleLexer extends Lexer {
 
                 switch (alt2) {
             	case 1 :
-            	    // /home/nickpeck/NetBeansProjects/HumbleV3/humble.g:
+            	    // /home/nickpeck/Humble/humble.g:
             	    {
             	    if ( (input.LA(1) >= '0' && input.LA(1) <= '9') ) {
             	        input.consume();
@@ -855,26 +901,26 @@ public class humbleLexer extends Lexer {
         try {
             int _type = IDENT;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // /home/nickpeck/NetBeansProjects/HumbleV3/humble.g:78:7: ( ( 'a' .. 'z' | 'A' .. 'Z' | '0' .. '9' | '_' | '.' )+ )
-            // /home/nickpeck/NetBeansProjects/HumbleV3/humble.g:78:9: ( 'a' .. 'z' | 'A' .. 'Z' | '0' .. '9' | '_' | '.' )+
+            // /home/nickpeck/Humble/humble.g:80:7: ( ( 'a' .. 'z' | 'A' .. 'Z' | '0' .. '9' | '_' )+ )
+            // /home/nickpeck/Humble/humble.g:80:9: ( 'a' .. 'z' | 'A' .. 'Z' | '0' .. '9' | '_' )+
             {
-            // /home/nickpeck/NetBeansProjects/HumbleV3/humble.g:78:9: ( 'a' .. 'z' | 'A' .. 'Z' | '0' .. '9' | '_' | '.' )+
+            // /home/nickpeck/Humble/humble.g:80:9: ( 'a' .. 'z' | 'A' .. 'Z' | '0' .. '9' | '_' )+
             int cnt3=0;
             loop3:
             do {
                 int alt3=2;
                 int LA3_0 = input.LA(1);
 
-                if ( (LA3_0=='.'||(LA3_0 >= '0' && LA3_0 <= '9')||(LA3_0 >= 'A' && LA3_0 <= 'Z')||LA3_0=='_'||(LA3_0 >= 'a' && LA3_0 <= 'z')) ) {
+                if ( ((LA3_0 >= '0' && LA3_0 <= '9')||(LA3_0 >= 'A' && LA3_0 <= 'Z')||LA3_0=='_'||(LA3_0 >= 'a' && LA3_0 <= 'z')) ) {
                     alt3=1;
                 }
 
 
                 switch (alt3) {
             	case 1 :
-            	    // /home/nickpeck/NetBeansProjects/HumbleV3/humble.g:
+            	    // /home/nickpeck/Humble/humble.g:
             	    {
-            	    if ( input.LA(1)=='.'||(input.LA(1) >= '0' && input.LA(1) <= '9')||(input.LA(1) >= 'A' && input.LA(1) <= 'Z')||input.LA(1)=='_'||(input.LA(1) >= 'a' && input.LA(1) <= 'z') ) {
+            	    if ( (input.LA(1) >= '0' && input.LA(1) <= '9')||(input.LA(1) >= 'A' && input.LA(1) <= 'Z')||input.LA(1)=='_'||(input.LA(1) >= 'a' && input.LA(1) <= 'z') ) {
             	        input.consume();
             	    }
             	    else {
@@ -913,12 +959,12 @@ public class humbleLexer extends Lexer {
         try {
             int _type = STR;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // /home/nickpeck/NetBeansProjects/HumbleV3/humble.g:79:6: ( '\"' (~ ( '\"' ) )* '\"' )
-            // /home/nickpeck/NetBeansProjects/HumbleV3/humble.g:79:8: '\"' (~ ( '\"' ) )* '\"'
+            // /home/nickpeck/Humble/humble.g:81:6: ( '\"' (~ ( '\"' ) )* '\"' )
+            // /home/nickpeck/Humble/humble.g:81:8: '\"' (~ ( '\"' ) )* '\"'
             {
             match('\"'); 
 
-            // /home/nickpeck/NetBeansProjects/HumbleV3/humble.g:79:12: (~ ( '\"' ) )*
+            // /home/nickpeck/Humble/humble.g:81:12: (~ ( '\"' ) )*
             loop4:
             do {
                 int alt4=2;
@@ -931,7 +977,7 @@ public class humbleLexer extends Lexer {
 
                 switch (alt4) {
             	case 1 :
-            	    // /home/nickpeck/NetBeansProjects/HumbleV3/humble.g:
+            	    // /home/nickpeck/Humble/humble.g:
             	    {
             	    if ( (input.LA(1) >= '\u0000' && input.LA(1) <= '!')||(input.LA(1) >= '#' && input.LA(1) <= '\uFFFF') ) {
             	        input.consume();
@@ -970,14 +1016,14 @@ public class humbleLexer extends Lexer {
         try {
             int _type = COMMENT;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // /home/nickpeck/NetBeansProjects/HumbleV3/humble.g:81:5: ( '/*' ( . )* '*/' )
-            // /home/nickpeck/NetBeansProjects/HumbleV3/humble.g:81:7: '/*' ( . )* '*/'
+            // /home/nickpeck/Humble/humble.g:83:5: ( '/*' ( . )* '*/' )
+            // /home/nickpeck/Humble/humble.g:83:7: '/*' ( . )* '*/'
             {
             match("/*"); 
 
 
 
-            // /home/nickpeck/NetBeansProjects/HumbleV3/humble.g:81:12: ( . )*
+            // /home/nickpeck/Humble/humble.g:83:12: ( . )*
             loop5:
             do {
                 int alt5=2;
@@ -1002,7 +1048,7 @@ public class humbleLexer extends Lexer {
 
                 switch (alt5) {
             	case 1 :
-            	    // /home/nickpeck/NetBeansProjects/HumbleV3/humble.g:81:12: .
+            	    // /home/nickpeck/Humble/humble.g:83:12: .
             	    {
             	    matchAny(); 
 
@@ -1037,14 +1083,14 @@ public class humbleLexer extends Lexer {
         try {
             int _type = LINE_COMMENT;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // /home/nickpeck/NetBeansProjects/HumbleV3/humble.g:83:5: ( '//' (~ ( '\\n' | '\\r' ) )* ( '\\r' )? '\\n' )
-            // /home/nickpeck/NetBeansProjects/HumbleV3/humble.g:83:7: '//' (~ ( '\\n' | '\\r' ) )* ( '\\r' )? '\\n'
+            // /home/nickpeck/Humble/humble.g:85:5: ( '//' (~ ( '\\n' | '\\r' ) )* ( '\\r' )? '\\n' )
+            // /home/nickpeck/Humble/humble.g:85:7: '//' (~ ( '\\n' | '\\r' ) )* ( '\\r' )? '\\n'
             {
             match("//"); 
 
 
 
-            // /home/nickpeck/NetBeansProjects/HumbleV3/humble.g:83:12: (~ ( '\\n' | '\\r' ) )*
+            // /home/nickpeck/Humble/humble.g:85:12: (~ ( '\\n' | '\\r' ) )*
             loop6:
             do {
                 int alt6=2;
@@ -1057,7 +1103,7 @@ public class humbleLexer extends Lexer {
 
                 switch (alt6) {
             	case 1 :
-            	    // /home/nickpeck/NetBeansProjects/HumbleV3/humble.g:
+            	    // /home/nickpeck/Humble/humble.g:
             	    {
             	    if ( (input.LA(1) >= '\u0000' && input.LA(1) <= '\t')||(input.LA(1) >= '\u000B' && input.LA(1) <= '\f')||(input.LA(1) >= '\u000E' && input.LA(1) <= '\uFFFF') ) {
             	        input.consume();
@@ -1078,7 +1124,7 @@ public class humbleLexer extends Lexer {
             } while (true);
 
 
-            // /home/nickpeck/NetBeansProjects/HumbleV3/humble.g:83:26: ( '\\r' )?
+            // /home/nickpeck/Humble/humble.g:85:26: ( '\\r' )?
             int alt7=2;
             int LA7_0 = input.LA(1);
 
@@ -1087,7 +1133,7 @@ public class humbleLexer extends Lexer {
             }
             switch (alt7) {
                 case 1 :
-                    // /home/nickpeck/NetBeansProjects/HumbleV3/humble.g:83:26: '\\r'
+                    // /home/nickpeck/Humble/humble.g:85:26: '\\r'
                     {
                     match('\r'); 
 
@@ -1117,10 +1163,10 @@ public class humbleLexer extends Lexer {
         try {
             int _type = WHITESPACE;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // /home/nickpeck/NetBeansProjects/HumbleV3/humble.g:84:12: ( ( '\\t' | ' ' | '\\r' | '\\n' | '\\u000C' )+ )
-            // /home/nickpeck/NetBeansProjects/HumbleV3/humble.g:84:14: ( '\\t' | ' ' | '\\r' | '\\n' | '\\u000C' )+
+            // /home/nickpeck/Humble/humble.g:86:12: ( ( '\\t' | ' ' | '\\r' | '\\n' | '\\u000C' )+ )
+            // /home/nickpeck/Humble/humble.g:86:14: ( '\\t' | ' ' | '\\r' | '\\n' | '\\u000C' )+
             {
-            // /home/nickpeck/NetBeansProjects/HumbleV3/humble.g:84:14: ( '\\t' | ' ' | '\\r' | '\\n' | '\\u000C' )+
+            // /home/nickpeck/Humble/humble.g:86:14: ( '\\t' | ' ' | '\\r' | '\\n' | '\\u000C' )+
             int cnt8=0;
             loop8:
             do {
@@ -1134,7 +1180,7 @@ public class humbleLexer extends Lexer {
 
                 switch (alt8) {
             	case 1 :
-            	    // /home/nickpeck/NetBeansProjects/HumbleV3/humble.g:
+            	    // /home/nickpeck/Humble/humble.g:
             	    {
             	    if ( (input.LA(1) >= '\t' && input.LA(1) <= '\n')||(input.LA(1) >= '\f' && input.LA(1) <= '\r')||input.LA(1)==' ' ) {
             	        input.consume();
@@ -1173,12 +1219,12 @@ public class humbleLexer extends Lexer {
     // $ANTLR end "WHITESPACE"
 
     public void mTokens() throws RecognitionException {
-        // /home/nickpeck/NetBeansProjects/HumbleV3/humble.g:1:8: ( IMPORT | PACKAGE | DEF | AS | DEREF | TAIL | EOL | COLON | BINDS | LPAREN | RPAREN | COMMA | LSB | RSB | LAB | RAB | BOOL | LAMBDA | DO | IF | ELSE | THEN | OR | EXTENDS | AND | NOT | IS | PLUS | MINUS | MULT | DIV | MOD | NUMBER | IDENT | STR | COMMENT | LINE_COMMENT | WHITESPACE )
-        int alt9=38;
+        // /home/nickpeck/Humble/humble.g:1:8: ( IMPORT | PACKAGE | DEF | AS | DEREF | TAIL | EOL | COLON | BINDS | LPAREN | RPAREN | COMMA | LSB | RSB | LAB | RAB | BOOL | LAMBDA | DO | IF | ELSE | THEN | OR | EXTENDS | AND | NOT | IS | PLUS | MINUS | MULT | DIV | MOD | NEW | DOT | NUMBER | IDENT | STR | COMMENT | LINE_COMMENT | WHITESPACE )
+        int alt9=40;
         alt9 = dfa9.predict(input);
         switch (alt9) {
             case 1 :
-                // /home/nickpeck/NetBeansProjects/HumbleV3/humble.g:1:10: IMPORT
+                // /home/nickpeck/Humble/humble.g:1:10: IMPORT
                 {
                 mIMPORT(); 
 
@@ -1186,7 +1232,7 @@ public class humbleLexer extends Lexer {
                 }
                 break;
             case 2 :
-                // /home/nickpeck/NetBeansProjects/HumbleV3/humble.g:1:17: PACKAGE
+                // /home/nickpeck/Humble/humble.g:1:17: PACKAGE
                 {
                 mPACKAGE(); 
 
@@ -1194,7 +1240,7 @@ public class humbleLexer extends Lexer {
                 }
                 break;
             case 3 :
-                // /home/nickpeck/NetBeansProjects/HumbleV3/humble.g:1:25: DEF
+                // /home/nickpeck/Humble/humble.g:1:25: DEF
                 {
                 mDEF(); 
 
@@ -1202,7 +1248,7 @@ public class humbleLexer extends Lexer {
                 }
                 break;
             case 4 :
-                // /home/nickpeck/NetBeansProjects/HumbleV3/humble.g:1:29: AS
+                // /home/nickpeck/Humble/humble.g:1:29: AS
                 {
                 mAS(); 
 
@@ -1210,7 +1256,7 @@ public class humbleLexer extends Lexer {
                 }
                 break;
             case 5 :
-                // /home/nickpeck/NetBeansProjects/HumbleV3/humble.g:1:32: DEREF
+                // /home/nickpeck/Humble/humble.g:1:32: DEREF
                 {
                 mDEREF(); 
 
@@ -1218,7 +1264,7 @@ public class humbleLexer extends Lexer {
                 }
                 break;
             case 6 :
-                // /home/nickpeck/NetBeansProjects/HumbleV3/humble.g:1:38: TAIL
+                // /home/nickpeck/Humble/humble.g:1:38: TAIL
                 {
                 mTAIL(); 
 
@@ -1226,7 +1272,7 @@ public class humbleLexer extends Lexer {
                 }
                 break;
             case 7 :
-                // /home/nickpeck/NetBeansProjects/HumbleV3/humble.g:1:43: EOL
+                // /home/nickpeck/Humble/humble.g:1:43: EOL
                 {
                 mEOL(); 
 
@@ -1234,7 +1280,7 @@ public class humbleLexer extends Lexer {
                 }
                 break;
             case 8 :
-                // /home/nickpeck/NetBeansProjects/HumbleV3/humble.g:1:47: COLON
+                // /home/nickpeck/Humble/humble.g:1:47: COLON
                 {
                 mCOLON(); 
 
@@ -1242,7 +1288,7 @@ public class humbleLexer extends Lexer {
                 }
                 break;
             case 9 :
-                // /home/nickpeck/NetBeansProjects/HumbleV3/humble.g:1:53: BINDS
+                // /home/nickpeck/Humble/humble.g:1:53: BINDS
                 {
                 mBINDS(); 
 
@@ -1250,7 +1296,7 @@ public class humbleLexer extends Lexer {
                 }
                 break;
             case 10 :
-                // /home/nickpeck/NetBeansProjects/HumbleV3/humble.g:1:59: LPAREN
+                // /home/nickpeck/Humble/humble.g:1:59: LPAREN
                 {
                 mLPAREN(); 
 
@@ -1258,7 +1304,7 @@ public class humbleLexer extends Lexer {
                 }
                 break;
             case 11 :
-                // /home/nickpeck/NetBeansProjects/HumbleV3/humble.g:1:66: RPAREN
+                // /home/nickpeck/Humble/humble.g:1:66: RPAREN
                 {
                 mRPAREN(); 
 
@@ -1266,7 +1312,7 @@ public class humbleLexer extends Lexer {
                 }
                 break;
             case 12 :
-                // /home/nickpeck/NetBeansProjects/HumbleV3/humble.g:1:73: COMMA
+                // /home/nickpeck/Humble/humble.g:1:73: COMMA
                 {
                 mCOMMA(); 
 
@@ -1274,7 +1320,7 @@ public class humbleLexer extends Lexer {
                 }
                 break;
             case 13 :
-                // /home/nickpeck/NetBeansProjects/HumbleV3/humble.g:1:79: LSB
+                // /home/nickpeck/Humble/humble.g:1:79: LSB
                 {
                 mLSB(); 
 
@@ -1282,7 +1328,7 @@ public class humbleLexer extends Lexer {
                 }
                 break;
             case 14 :
-                // /home/nickpeck/NetBeansProjects/HumbleV3/humble.g:1:83: RSB
+                // /home/nickpeck/Humble/humble.g:1:83: RSB
                 {
                 mRSB(); 
 
@@ -1290,7 +1336,7 @@ public class humbleLexer extends Lexer {
                 }
                 break;
             case 15 :
-                // /home/nickpeck/NetBeansProjects/HumbleV3/humble.g:1:87: LAB
+                // /home/nickpeck/Humble/humble.g:1:87: LAB
                 {
                 mLAB(); 
 
@@ -1298,7 +1344,7 @@ public class humbleLexer extends Lexer {
                 }
                 break;
             case 16 :
-                // /home/nickpeck/NetBeansProjects/HumbleV3/humble.g:1:91: RAB
+                // /home/nickpeck/Humble/humble.g:1:91: RAB
                 {
                 mRAB(); 
 
@@ -1306,7 +1352,7 @@ public class humbleLexer extends Lexer {
                 }
                 break;
             case 17 :
-                // /home/nickpeck/NetBeansProjects/HumbleV3/humble.g:1:95: BOOL
+                // /home/nickpeck/Humble/humble.g:1:95: BOOL
                 {
                 mBOOL(); 
 
@@ -1314,7 +1360,7 @@ public class humbleLexer extends Lexer {
                 }
                 break;
             case 18 :
-                // /home/nickpeck/NetBeansProjects/HumbleV3/humble.g:1:100: LAMBDA
+                // /home/nickpeck/Humble/humble.g:1:100: LAMBDA
                 {
                 mLAMBDA(); 
 
@@ -1322,7 +1368,7 @@ public class humbleLexer extends Lexer {
                 }
                 break;
             case 19 :
-                // /home/nickpeck/NetBeansProjects/HumbleV3/humble.g:1:107: DO
+                // /home/nickpeck/Humble/humble.g:1:107: DO
                 {
                 mDO(); 
 
@@ -1330,7 +1376,7 @@ public class humbleLexer extends Lexer {
                 }
                 break;
             case 20 :
-                // /home/nickpeck/NetBeansProjects/HumbleV3/humble.g:1:110: IF
+                // /home/nickpeck/Humble/humble.g:1:110: IF
                 {
                 mIF(); 
 
@@ -1338,7 +1384,7 @@ public class humbleLexer extends Lexer {
                 }
                 break;
             case 21 :
-                // /home/nickpeck/NetBeansProjects/HumbleV3/humble.g:1:113: ELSE
+                // /home/nickpeck/Humble/humble.g:1:113: ELSE
                 {
                 mELSE(); 
 
@@ -1346,7 +1392,7 @@ public class humbleLexer extends Lexer {
                 }
                 break;
             case 22 :
-                // /home/nickpeck/NetBeansProjects/HumbleV3/humble.g:1:118: THEN
+                // /home/nickpeck/Humble/humble.g:1:118: THEN
                 {
                 mTHEN(); 
 
@@ -1354,7 +1400,7 @@ public class humbleLexer extends Lexer {
                 }
                 break;
             case 23 :
-                // /home/nickpeck/NetBeansProjects/HumbleV3/humble.g:1:123: OR
+                // /home/nickpeck/Humble/humble.g:1:123: OR
                 {
                 mOR(); 
 
@@ -1362,7 +1408,7 @@ public class humbleLexer extends Lexer {
                 }
                 break;
             case 24 :
-                // /home/nickpeck/NetBeansProjects/HumbleV3/humble.g:1:126: EXTENDS
+                // /home/nickpeck/Humble/humble.g:1:126: EXTENDS
                 {
                 mEXTENDS(); 
 
@@ -1370,7 +1416,7 @@ public class humbleLexer extends Lexer {
                 }
                 break;
             case 25 :
-                // /home/nickpeck/NetBeansProjects/HumbleV3/humble.g:1:134: AND
+                // /home/nickpeck/Humble/humble.g:1:134: AND
                 {
                 mAND(); 
 
@@ -1378,7 +1424,7 @@ public class humbleLexer extends Lexer {
                 }
                 break;
             case 26 :
-                // /home/nickpeck/NetBeansProjects/HumbleV3/humble.g:1:138: NOT
+                // /home/nickpeck/Humble/humble.g:1:138: NOT
                 {
                 mNOT(); 
 
@@ -1386,7 +1432,7 @@ public class humbleLexer extends Lexer {
                 }
                 break;
             case 27 :
-                // /home/nickpeck/NetBeansProjects/HumbleV3/humble.g:1:142: IS
+                // /home/nickpeck/Humble/humble.g:1:142: IS
                 {
                 mIS(); 
 
@@ -1394,7 +1440,7 @@ public class humbleLexer extends Lexer {
                 }
                 break;
             case 28 :
-                // /home/nickpeck/NetBeansProjects/HumbleV3/humble.g:1:145: PLUS
+                // /home/nickpeck/Humble/humble.g:1:145: PLUS
                 {
                 mPLUS(); 
 
@@ -1402,7 +1448,7 @@ public class humbleLexer extends Lexer {
                 }
                 break;
             case 29 :
-                // /home/nickpeck/NetBeansProjects/HumbleV3/humble.g:1:150: MINUS
+                // /home/nickpeck/Humble/humble.g:1:150: MINUS
                 {
                 mMINUS(); 
 
@@ -1410,7 +1456,7 @@ public class humbleLexer extends Lexer {
                 }
                 break;
             case 30 :
-                // /home/nickpeck/NetBeansProjects/HumbleV3/humble.g:1:156: MULT
+                // /home/nickpeck/Humble/humble.g:1:156: MULT
                 {
                 mMULT(); 
 
@@ -1418,7 +1464,7 @@ public class humbleLexer extends Lexer {
                 }
                 break;
             case 31 :
-                // /home/nickpeck/NetBeansProjects/HumbleV3/humble.g:1:161: DIV
+                // /home/nickpeck/Humble/humble.g:1:161: DIV
                 {
                 mDIV(); 
 
@@ -1426,7 +1472,7 @@ public class humbleLexer extends Lexer {
                 }
                 break;
             case 32 :
-                // /home/nickpeck/NetBeansProjects/HumbleV3/humble.g:1:165: MOD
+                // /home/nickpeck/Humble/humble.g:1:165: MOD
                 {
                 mMOD(); 
 
@@ -1434,47 +1480,63 @@ public class humbleLexer extends Lexer {
                 }
                 break;
             case 33 :
-                // /home/nickpeck/NetBeansProjects/HumbleV3/humble.g:1:169: NUMBER
+                // /home/nickpeck/Humble/humble.g:1:169: NEW
+                {
+                mNEW(); 
+
+
+                }
+                break;
+            case 34 :
+                // /home/nickpeck/Humble/humble.g:1:173: DOT
+                {
+                mDOT(); 
+
+
+                }
+                break;
+            case 35 :
+                // /home/nickpeck/Humble/humble.g:1:177: NUMBER
                 {
                 mNUMBER(); 
 
 
                 }
                 break;
-            case 34 :
-                // /home/nickpeck/NetBeansProjects/HumbleV3/humble.g:1:176: IDENT
+            case 36 :
+                // /home/nickpeck/Humble/humble.g:1:184: IDENT
                 {
                 mIDENT(); 
 
 
                 }
                 break;
-            case 35 :
-                // /home/nickpeck/NetBeansProjects/HumbleV3/humble.g:1:182: STR
+            case 37 :
+                // /home/nickpeck/Humble/humble.g:1:190: STR
                 {
                 mSTR(); 
 
 
                 }
                 break;
-            case 36 :
-                // /home/nickpeck/NetBeansProjects/HumbleV3/humble.g:1:186: COMMENT
+            case 38 :
+                // /home/nickpeck/Humble/humble.g:1:194: COMMENT
                 {
                 mCOMMENT(); 
 
 
                 }
                 break;
-            case 37 :
-                // /home/nickpeck/NetBeansProjects/HumbleV3/humble.g:1:194: LINE_COMMENT
+            case 39 :
+                // /home/nickpeck/Humble/humble.g:1:202: LINE_COMMENT
                 {
                 mLINE_COMMENT(); 
 
 
                 }
                 break;
-            case 38 :
-                // /home/nickpeck/NetBeansProjects/HumbleV3/humble.g:1:207: WHITESPACE
+            case 40 :
+                // /home/nickpeck/Humble/humble.g:1:215: WHITESPACE
                 {
                 mWHITESPACE(); 
 
@@ -1489,126 +1551,134 @@ public class humbleLexer extends Lexer {
 
     protected DFA9 dfa9 = new DFA9(this);
     static final String DFA9_eotS =
-        "\1\uffff\2\34\1\uffff\1\44\2\34\1\uffff\1\52\7\uffff\1\34\1\uffff"+
-        "\2\34\5\uffff\1\61\1\uffff\1\62\3\uffff\1\34\1\64\1\65\1\34\2\uffff"+
-        "\1\67\3\34\2\uffff\1\34\1\74\2\34\4\uffff\1\34\2\uffff\1\34\1\uffff"+
-        "\4\34\1\uffff\4\34\1\111\1\112\1\113\1\34\1\115\3\34\3\uffff\1\112"+
-        "\1\uffff\1\34\1\122\2\34\1\uffff\1\125\1\126\2\uffff";
+        "\1\uffff\2\36\1\uffff\1\46\2\36\1\uffff\1\54\7\uffff\1\36\1\uffff"+
+        "\2\36\5\uffff\1\63\1\uffff\1\36\1\uffff\1\65\3\uffff\1\36\1\67\1"+
+        "\70\1\36\2\uffff\1\72\3\36\2\uffff\1\36\1\77\2\36\3\uffff\1\36\1"+
+        "\uffff\1\36\2\uffff\1\36\1\uffff\4\36\1\uffff\2\36\1\113\2\36\1"+
+        "\116\1\117\1\120\1\36\1\122\1\36\1\uffff\2\36\3\uffff\1\117\1\uffff"+
+        "\1\36\1\127\2\36\1\uffff\1\132\1\133\2\uffff";
     static final String DFA9_eofS =
-        "\127\uffff";
+        "\134\uffff";
     static final String DFA9_minS =
         "\1\11\1\146\1\141\1\uffff\1\72\1\163\1\141\1\uffff\1\76\7\uffff"+
-        "\1\141\1\uffff\1\157\1\154\5\uffff\1\52\1\uffff\1\56\3\uffff\1\160"+
-        "\2\56\1\143\2\uffff\1\56\1\151\1\165\1\145\2\uffff\1\154\1\56\1"+
-        "\163\1\164\4\uffff\1\157\2\uffff\1\153\1\uffff\1\154\1\145\1\156"+
-        "\1\163\1\uffff\2\145\1\162\1\141\3\56\1\145\1\56\1\156\1\164\1\147"+
-        "\3\uffff\1\56\1\uffff\1\144\1\56\1\145\1\163\1\uffff\2\56\2\uffff";
+        "\1\141\1\uffff\1\157\1\154\5\uffff\1\52\1\uffff\1\145\1\uffff\1"+
+        "\60\3\uffff\1\160\2\60\1\143\2\uffff\1\60\1\151\1\165\1\145\2\uffff"+
+        "\1\154\1\60\1\163\1\164\3\uffff\1\167\1\uffff\1\157\2\uffff\1\153"+
+        "\1\uffff\1\154\1\145\1\156\1\163\1\uffff\2\145\1\60\1\162\1\141"+
+        "\3\60\1\145\1\60\1\156\1\uffff\1\164\1\147\3\uffff\1\60\1\uffff"+
+        "\1\144\1\60\1\145\1\163\1\uffff\2\60\2\uffff";
     static final String DFA9_maxS =
         "\1\174\1\163\1\141\1\uffff\1\72\1\163\1\162\1\uffff\1\76\7\uffff"+
-        "\1\141\1\uffff\1\157\1\170\5\uffff\1\57\1\uffff\1\172\3\uffff\1"+
-        "\160\2\172\1\143\2\uffff\1\172\1\151\1\165\1\145\2\uffff\1\154\1"+
-        "\172\1\163\1\164\4\uffff\1\157\2\uffff\1\153\1\uffff\1\154\1\145"+
-        "\1\156\1\163\1\uffff\2\145\1\162\1\141\3\172\1\145\1\172\1\156\1"+
-        "\164\1\147\3\uffff\1\172\1\uffff\1\144\1\172\1\145\1\163\1\uffff"+
-        "\2\172\2\uffff";
+        "\1\141\1\uffff\1\157\1\170\5\uffff\1\57\1\uffff\1\145\1\uffff\1"+
+        "\172\3\uffff\1\160\2\172\1\143\2\uffff\1\172\1\151\1\165\1\145\2"+
+        "\uffff\1\154\1\172\1\163\1\164\3\uffff\1\167\1\uffff\1\157\2\uffff"+
+        "\1\153\1\uffff\1\154\1\145\1\156\1\163\1\uffff\2\145\1\172\1\162"+
+        "\1\141\3\172\1\145\1\172\1\156\1\uffff\1\164\1\147\3\uffff\1\172"+
+        "\1\uffff\1\144\1\172\1\145\1\163\1\uffff\2\172\2\uffff";
     static final String DFA9_acceptS =
         "\3\uffff\1\3\3\uffff\1\7\1\uffff\1\12\1\13\1\14\1\15\1\16\1\17\1"+
         "\20\1\uffff\1\22\2\uffff\1\27\1\31\1\32\1\34\1\36\1\uffff\1\40\1"+
-        "\uffff\1\42\1\43\1\46\4\uffff\1\4\1\10\4\uffff\1\11\1\35\4\uffff"+
-        "\1\44\1\45\1\37\1\41\1\uffff\1\24\1\33\1\uffff\1\5\4\uffff\1\23"+
-        "\14\uffff\1\6\1\21\1\26\1\uffff\1\25\4\uffff\1\1\2\uffff\1\2\1\30";
+        "\uffff\1\42\1\uffff\1\44\1\45\1\50\4\uffff\1\4\1\10\4\uffff\1\11"+
+        "\1\35\4\uffff\1\46\1\47\1\37\1\uffff\1\43\1\uffff\1\24\1\33\1\uffff"+
+        "\1\5\4\uffff\1\23\13\uffff\1\41\2\uffff\1\6\1\21\1\26\1\uffff\1"+
+        "\25\4\uffff\1\1\2\uffff\1\2\1\30";
     static final String DFA9_specialS =
-        "\127\uffff}>";
+        "\134\uffff}>";
     static final String[] DFA9_transitionS = {
-            "\2\36\1\uffff\2\36\22\uffff\1\36\1\26\1\35\2\uffff\1\32\1\25"+
-            "\1\uffff\1\11\1\12\1\30\1\27\1\13\1\10\1\34\1\31\12\33\1\4\1"+
-            "\7\1\16\1\uffff\1\17\1\uffff\1\3\32\34\1\14\1\21\1\15\1\uffff"+
-            "\1\34\1\uffff\1\5\2\34\1\22\1\23\1\20\2\34\1\1\6\34\1\2\3\34"+
-            "\1\6\6\34\1\uffff\1\24",
-            "\1\40\6\uffff\1\37\5\uffff\1\41",
-            "\1\42",
+            "\2\40\1\uffff\2\40\22\uffff\1\40\1\26\1\37\2\uffff\1\32\1\25"+
+            "\1\uffff\1\11\1\12\1\30\1\27\1\13\1\10\1\34\1\31\12\35\1\4\1"+
+            "\7\1\16\1\uffff\1\17\1\uffff\1\3\32\36\1\14\1\21\1\15\1\uffff"+
+            "\1\36\1\uffff\1\5\2\36\1\22\1\23\1\20\2\36\1\1\4\36\1\33\1\36"+
+            "\1\2\3\36\1\6\6\36\1\uffff\1\24",
+            "\1\42\6\uffff\1\41\5\uffff\1\43",
+            "\1\44",
             "",
-            "\1\43",
             "\1\45",
-            "\1\46\6\uffff\1\50\11\uffff\1\47",
-            "",
-            "\1\51",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
+            "\1\47",
+            "\1\50\6\uffff\1\52\11\uffff\1\51",
             "",
             "\1\53",
             "",
-            "\1\54",
-            "\1\55\13\uffff\1\56",
             "",
             "",
             "",
             "",
             "",
-            "\1\57\4\uffff\1\60",
             "",
-            "\1\34\1\uffff\12\33\7\uffff\32\34\4\uffff\1\34\1\uffff\32\34",
+            "\1\55",
+            "",
+            "\1\56",
+            "\1\57\13\uffff\1\60",
             "",
             "",
             "",
-            "\1\63",
-            "\1\34\1\uffff\12\34\7\uffff\32\34\4\uffff\1\34\1\uffff\32\34",
-            "\1\34\1\uffff\12\34\7\uffff\32\34\4\uffff\1\34\1\uffff\32\34",
+            "",
+            "",
+            "\1\61\4\uffff\1\62",
+            "",
+            "\1\64",
+            "",
+            "\12\35\7\uffff\32\36\4\uffff\1\36\1\uffff\32\36",
+            "",
+            "",
+            "",
             "\1\66",
-            "",
-            "",
-            "\1\34\1\uffff\12\34\7\uffff\32\34\4\uffff\1\34\1\uffff\32\34",
-            "\1\70",
+            "\12\36\7\uffff\32\36\4\uffff\1\36\1\uffff\32\36",
+            "\12\36\7\uffff\32\36\4\uffff\1\36\1\uffff\32\36",
             "\1\71",
-            "\1\72",
             "",
             "",
+            "\12\36\7\uffff\32\36\4\uffff\1\36\1\uffff\32\36",
             "\1\73",
-            "\1\34\1\uffff\12\34\7\uffff\32\34\4\uffff\1\34\1\uffff\32\34",
+            "\1\74",
             "\1\75",
+            "",
+            "",
             "\1\76",
-            "",
-            "",
-            "",
-            "",
-            "\1\77",
-            "",
-            "",
+            "\12\36\7\uffff\32\36\4\uffff\1\36\1\uffff\32\36",
             "\1\100",
-            "",
             "\1\101",
+            "",
+            "",
+            "",
             "\1\102",
+            "",
             "\1\103",
+            "",
+            "",
             "\1\104",
             "",
             "\1\105",
             "\1\106",
             "\1\107",
             "\1\110",
-            "\1\34\1\uffff\12\34\7\uffff\32\34\4\uffff\1\34\1\uffff\32\34",
-            "\1\34\1\uffff\12\34\7\uffff\32\34\4\uffff\1\34\1\uffff\32\34",
-            "\1\34\1\uffff\12\34\7\uffff\32\34\4\uffff\1\34\1\uffff\32\34",
+            "",
+            "\1\111",
+            "\1\112",
+            "\12\36\7\uffff\32\36\4\uffff\1\36\1\uffff\32\36",
             "\1\114",
-            "\1\34\1\uffff\12\34\7\uffff\32\34\4\uffff\1\34\1\uffff\32\34",
-            "\1\116",
-            "\1\117",
-            "\1\120",
-            "",
-            "",
-            "",
-            "\1\34\1\uffff\12\34\7\uffff\32\34\4\uffff\1\34\1\uffff\32\34",
-            "",
+            "\1\115",
+            "\12\36\7\uffff\32\36\4\uffff\1\36\1\uffff\32\36",
+            "\12\36\7\uffff\32\36\4\uffff\1\36\1\uffff\32\36",
+            "\12\36\7\uffff\32\36\4\uffff\1\36\1\uffff\32\36",
             "\1\121",
-            "\1\34\1\uffff\12\34\7\uffff\32\34\4\uffff\1\34\1\uffff\32\34",
+            "\12\36\7\uffff\32\36\4\uffff\1\36\1\uffff\32\36",
             "\1\123",
-            "\1\124",
             "",
-            "\1\34\1\uffff\12\34\7\uffff\32\34\4\uffff\1\34\1\uffff\32\34",
-            "\1\34\1\uffff\12\34\7\uffff\32\34\4\uffff\1\34\1\uffff\32\34",
+            "\1\124",
+            "\1\125",
+            "",
+            "",
+            "",
+            "\12\36\7\uffff\32\36\4\uffff\1\36\1\uffff\32\36",
+            "",
+            "\1\126",
+            "\12\36\7\uffff\32\36\4\uffff\1\36\1\uffff\32\36",
+            "\1\130",
+            "\1\131",
+            "",
+            "\12\36\7\uffff\32\36\4\uffff\1\36\1\uffff\32\36",
+            "\12\36\7\uffff\32\36\4\uffff\1\36\1\uffff\32\36",
             "",
             ""
     };
@@ -1643,7 +1713,7 @@ public class humbleLexer extends Lexer {
             this.transition = DFA9_transition;
         }
         public String getDescription() {
-            return "1:1: Tokens : ( IMPORT | PACKAGE | DEF | AS | DEREF | TAIL | EOL | COLON | BINDS | LPAREN | RPAREN | COMMA | LSB | RSB | LAB | RAB | BOOL | LAMBDA | DO | IF | ELSE | THEN | OR | EXTENDS | AND | NOT | IS | PLUS | MINUS | MULT | DIV | MOD | NUMBER | IDENT | STR | COMMENT | LINE_COMMENT | WHITESPACE );";
+            return "1:1: Tokens : ( IMPORT | PACKAGE | DEF | AS | DEREF | TAIL | EOL | COLON | BINDS | LPAREN | RPAREN | COMMA | LSB | RSB | LAB | RAB | BOOL | LAMBDA | DO | IF | ELSE | THEN | OR | EXTENDS | AND | NOT | IS | PLUS | MINUS | MULT | DIV | MOD | NEW | DOT | NUMBER | IDENT | STR | COMMENT | LINE_COMMENT | WHITESPACE );";
         }
     }
  

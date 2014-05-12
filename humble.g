@@ -69,13 +69,15 @@ MINUS	:	'-';
 MULT	:	'*';
 DIV	:	'/';
 MOD	:	'%';
+NEW	:	'new';
+DOT 	:	'.';
 //YIELD	:	'yield';
 /*INT	:	('0'..'9')+;
 LONG	:	('0'..'9')+ 'L';
 DOUBLE	:	('0'..'9')+ '.' ('0'..'9')+;
 FLOAT	:	('0'..'9')+ '.' ('0'..'9')+ 'f';*/
 NUMBER 	:	('0'..'9')+ /*| (('0'..'9')+ '.' ('0'..'9')+)*/;
-IDENT : ('a'..'z'|'A'..'Z'|'0'..'9'|'_'|'.')+;
+IDENT : ('a'..'z'|'A'..'Z'|'0'..'9'|'_')+;
 STR 	:	'"' ~('"')* '"';
 COMMENT
     : '/*' .* '*/' {$channel=HIDDEN;};
@@ -85,25 +87,31 @@ WHITESPACE : ( '\t' | ' ' | '\r' | '\n'| '\u000C' )+    { $channel = HIDDEN; } ;
 
 
 package_statement returns [String result]
-	:	PACKAGE i=expression EOL
-		{$result="package " + i.toString() + ";";}
+	:	PACKAGE i1=IDENT {$result = i1.getText();}
+		(
+			DOT i2=IDENT {$result = $result + "." + i2.getText();}
+		)* EOL
+		{$result="package " + $result + ";";}
 	;
 	
 extends_statement returns [String result]
-	:	EXTENDS i=expression EOL
-		{$result="extends " + i.toString();}
+	:	EXTENDS i=IDENT EOL
+		{$result="extends " + i.getText();}
 	;
 
 import_statment returns [String result]
-	:	IMPORT e=expression EOL
+	:	IMPORT i1=IDENT {$result = i1.getText();}
+		(
+			DOT i2=IDENT {$result = $result + "." + i2.getText();}
+		)* EOL
 		{
-			if(e.toString().endsWith(".*")) {
+			if($result.endsWith(".*")) {
 				System.err.println("Package imports are not allowed in Humble.");
 				System.exit(1);
 			}
 		}
-		{$result="import " + e.toString() + ";";}
-		{imports.add(e.toString());}
+		{imports.add($result);}
+		{$result="import " + $result + ";";}
 	;
 	
 dereference	returns [LinkedList<String> result]
@@ -143,8 +151,24 @@ list_slice returns [LinkedList<String> result]
 	;
 	
 type	returns [String result]
-	:	LAB i=IDENT RAB
-	{$result = " new _Type(" + i.getText() + ".class)";}
+	:	
+		LAB i=IDENT RAB {$result = " new _Class(" + i.getText() + ".class)";}
+	;
+	
+obj returns [String result]
+	:
+	 NEW i=IDENT
+			{StringBuilder args = new StringBuilder("(");} 
+			LPAREN 
+			c1=callable {args.append(c1.toString());}
+			(
+				COMMA 
+				c2=callable 
+				{args.append(", ");}
+				{args.append(c2.toString());}
+			)* 
+			RPAREN {args.append(")");}
+		{$result = " new " + i.getText() + args.toString();}
 	;
 
 
@@ -169,12 +193,14 @@ tuple	returns [StringBuilder result]
 		(
 			(
 				 e1=statement {$result.append(e1.toString());}
+				 | f1=function  {$result.append(f1.toString());}
 			)
 		
 			(
 				COMMA {$result.append(", ");}
 				(
 					e2=statement {$result.append(e2.toString());}
+					| f2=function  {$result.append(f2.toString());}
 				)
 			)*
 		)? RPAREN {$result.append(')');}
@@ -235,22 +261,48 @@ expression returns [StringBuilder result]
 						}	
 					}
 				)
-		
+			/*| i=IDENT COLON t3=tuple
+				{$result.append(" new " + i.toString() + "(){");
+				$result.append("	@Override");
+							
+				$result.append("	public Callable call(final Callable ... args){");
+				$result.append("		return " + t3.toString() + ".call(args);");
+				$result.append("	}");
+				$result.append("}");}*/
 			| t2=tuple {$result.append(t2.toString());}
 			| li=list {$result.append(li.toString());}
+			| o=obj t3=tuple 							
+			{
+				$result.append(o.toString() + "{");
+				$result.append("	@Override");
+		
+				$result.append("	public Callable call(final Callable ... args){");
+				$result.append("		return " + t3.toString() + ".call(args);");
+				$result.append("	}");
+				$result.append("}");
+			}
+			| o2=obj {$result.append(o2.toString());}
 			
 		)
 	;
 	
 //The following 'compound_expression' sections are nested to yeild the correct order of operators.
 //for reference, we use the python convention: http://www.informit.com/articles/article.aspx?p=459269&seqNum=11
+compound_expression_dot returns [String result]
+	:
+		e1=expression {$result = e1.toString();}
+		(
+			DOT e2=expression {$result = $result + "." + e2.toString();}
+		)*
+	;
+
 compound_expression_mult_div returns [String result]
 	:
-		e=expression {$result = e.toString();}
+		e=compound_expression_dot {$result = e.toString();}
 		(
-			MULT  e2=expression {$result = "multiply.call(" + $result + ", " + e2.toString() + ")";}
-			| DIV  e3=expression {$result = "divide.call(" + $result + ", " + e3.toString() + ")";}
-			| MOD e4=expression {$result = "modulus.call(" + $result + ", " + e4.toString() + ")";}
+			MULT  e2=compound_expression_dot {$result = "multiply.call(" + $result + ", " + e2.toString() + ")";}
+			| DIV  e3=compound_expression_dot {$result = "divide.call(" + $result + ", " + e3.toString() + ")";}
+			| MOD e4=compound_expression_dot {$result = "modulus.call(" + $result + ", " + e4.toString() + ")";}
 		)*	
 	;
 	
@@ -341,6 +393,7 @@ lambda 	returns [StringBuilder result]
 	:	
 		{$result = new StringBuilder();}
 		{StringBuilder args = new StringBuilder();}
+		//{ArrayList<String> argTypes = new ArrayList();}
 		{int argIndex=0;}
 		(
 			LAMBDA
@@ -348,9 +401,17 @@ lambda 	returns [StringBuilder result]
 			LPAREN
 			(
 				(
-					i1=IDENT {args.append(" final Callable ");}
-					{args.append(i1.getText());}
-					{args.append(" = args[" + argIndex + "];");}
+					(
+						LAB tp=IDENT RAB i1=IDENT {args.append(" final " + tp.getText() + " ");}
+						{args.append(i1.getText());}
+						{args.append(" = (" + tp.getText() + ")args[" + argIndex + "];");}
+					)
+					|
+					(
+						i11=IDENT {args.append(" final Callable ");}
+						{args.append(i11.getText());}
+						{args.append(" = args[" + argIndex + "];");}
+					)
 					| d1=dereference
 					{
 						args.append(" final Callable " + d1.get(0) + " = ((_List)args[0]);");
@@ -456,9 +517,20 @@ function	returns [StringBuilder result]
 		LPAREN
 		(
 			(
-				i1=IDENT 
+				//i1=IDENT 
 				
-				{args.add(" final Callable " + i1.getText() + " = args[" + argIndex + "];");}
+				//{args.add(" final Callable " + i1.getText() + " = args[" + argIndex + "];");}
+				(
+					LAB tp=IDENT RAB i1=IDENT {args.add(" final " + tp.getText() + " ");}
+					{args.add(i1.getText());}
+					{args.add(" = (" + tp.getText() + ")args[" + argIndex + "];");}
+				)
+				|
+				(
+					i11=IDENT {args.add(" final Callable ");}
+					{args.add(i11.getText());}
+					{args.add(" = args[" + argIndex + "];");}
+				)
 				| d1=dereference					
 				{
 					args.add(" final Callable " + d1.get(0) + " = ((_List)args[0]);");
@@ -538,6 +610,54 @@ function	returns [StringBuilder result]
 		EOL {$result.append(";");}
 	;
 	
+typedef	 returns [StringBuilder result]
+	:	
+		{$result = new StringBuilder();}
+		DEF LAB id=IDENT RAB
+		
+		//{$result.append("public class " + id.getText() + "{");}
+		
+		{LinkedList<String> args = new LinkedList();}
+		{int argIndex = 0;}
+		LPAREN
+		(
+			(
+				i1=IDENT 
+				{args.add(i1.getText());}
+			)
+			(
+				COMMA {argIndex ++;}
+				(i2=IDENT 
+					{args.add(i2.getText());}
+				)
+				
+			)*
+		)?
+		RPAREN
+		{
+			for(int i=0;i<args.size();i++) {		
+				$result.append(" private static Callable " + args.get(i) + ";");
+			}
+		}
+				
+		{$result.append("	public " + id.getText() + "(Callable... args){");}
+
+		{
+			for(int i=0;i<args.size();i++) {
+				{$result.append(args.get(i) + " = args[" + i + "];");}
+			}
+		}
+		{$result.append("}");}
+		
+		AS
+		
+		(f=function {$result.append(f.toString());})* 
+		
+		//{$result.append("}");}
+		
+		EOL
+	;
+	
 	
 module		returns [StringBuilder result]
 	:	
@@ -561,29 +681,25 @@ module		returns [StringBuilder result]
 		
 		{$result.append("public class " + getModuleName() + " " + _extends + " {");}
 		{StringBuilder statements = new StringBuilder();}
-		{statements.append("public static void main(String[] args) throws HumbleRuntimeException{");}
 		(
-			f=function {$result.append(f.toString());}
-			| s=statement
+			t=typedef  {$result.append(t.toString());}
+			| 
 			(
-				{String theStatement = s.toString();} 
-				{statements.append(theStatement.substring(0, theStatement.length()));}
-				EOL {statements.append(".call();");}
+				{statements.append("public static void main(String[] args) throws HumbleRuntimeException{");}
+				(
+					f=function {$result.append(f.toString());}
+					| s=statement
+					(
+						{String theStatement = s.toString();} 
+						{statements.append(theStatement.substring(0, theStatement.length()));}
+						EOL {statements.append(".call();");}
+					)
+					
+				)*
+				{statements.append("}");}
 			)
-			/*|
-			(	//exceptions can only be caught in top-level code
-				YIELD COLON s2=statement ERROR COLON l=lambda EOL
-				{
-					statements.append("			try{");
-					String theStatement = s2.toString();
-					statements.append("				yield(" + theStatement.substring(0, theStatement.length()) + ");");
-					statements.append("			} catch (HumbleRuntimeException e) {");
-					statements.append("				" + l.toString() + ".call(e.getException()).call();");
-					statements.append("			}");
-				}
-			)*/
-		)* 
-		{statements.append("}");}
+		)
+		
 		{$result.append(" @Override public Callable call(Callable... args) {return this;}");}
 		{statements.append("}");}
 		{$result.append(statements);}

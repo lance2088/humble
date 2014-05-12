@@ -48,5 +48,5 @@ public class _List extends LinkedList<Callable>
         }
         res.append("]");
         return res.toString();
-    }   
+    }
 }

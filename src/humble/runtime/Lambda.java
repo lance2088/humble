@@ -1,6 +1,5 @@
 package humble.runtime;
 
-
 /**
  * Abstract blueprint for a lambda, or anonymous function.
  *

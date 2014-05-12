@@ -17,6 +17,7 @@ public interface Callable<T extends Callable> {
      */
     T call(final Callable... args);
 
+
     /**
      * Enforce the behaviour that we can bind callable x to another callable (y),
      * such that x.bindTo(y) is equivalent to y(x());
